@@ -24,7 +24,7 @@ procedure Tuhrthul_Kau is
       Gtk.Window.Show_All (Main_Window);
    end Create_Window;
 
-begin --  Tuhrtuhl_Kau
+begin --  Tuhrthul_Kau
    --  Initializes GtkAda
    Gtk.Main.Init;
 
