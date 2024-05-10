@@ -3,3 +3,9 @@
 
 # Ada Library Information
 *.ali
+
+# Alire specific:
+alire/
+bin/
+obj/
+config/

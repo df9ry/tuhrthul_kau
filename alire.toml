@@ -1,0 +1,11 @@
+name = "tuhrthul_kau"
+description = "Shiny new project"
+version = "0.1.0-dev"
+
+authors = ["Tania Hagn"]
+maintainers = ["Tania Hagn <reiner@jemira.net>"]
+maintainers-logins = ["df9ry"]
+
+executables = ["tuhrthul_kau"]
+[[depends-on]]
+gtkada = "^24.0.0"
