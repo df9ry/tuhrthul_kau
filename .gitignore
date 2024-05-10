@@ -9,3 +9,6 @@ alire/
 bin/
 obj/
 config/
+
+.clang-format
+
