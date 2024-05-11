@@ -2,28 +2,22 @@ with Gtk.Main;
 
 with Glib;        use Glib;
 with Glib.Error;  use Glib.Error;
+with Glib.Object; use Glib.Object;
+
 with Gtk.Builder; use Gtk.Builder;
+with Gtk.Window;  use Gtk.Window;
 
 with Message_Dialog;
-
---  with Callbacks;
+with Callbacks;
 
 procedure Tuhrthul_Kau is
 
    procedure Create_Window is
-      --  Main_Window : Gtk.Window.Gtk_Window;
-      Builder : constant Gtk_Builder := Gtk_Builder_New;
-      Error : aliased GError;
+      Builder     : constant Gtk_Builder := Gtk_Builder_New;
+      Error       : aliased GError;
+      Main_Window : Gtk_Window;
+
    begin
-      --  From Gtk.Widget:
-      --  Gtk.Window.Set_Title
-      --  (Window => Main_Window, Title  => "Tuhrthul Kau");
-
-      --  Construct the window and connect various callbacks
-
-      --  ...
-      --  Gtk.Window.Show_All (Main_Window);
-
       if Add_From_File (Builder  => Builder,
                         Filename => "tuhrthul_kau.glade",
                         Error    => Error'Access) = 0
@@ -31,6 +25,18 @@ procedure Tuhrthul_Kau is
          Message_Dialog.Fatal (Get_Message (Error));
       end if;
 
+      Main_Window := Gtk_Window (Get_Object (Builder, "main_window"));
+      if Main_Window = null
+      then
+         Message_Dialog.Fatal ("Unable to fetch main window");
+      end if;
+
+      Set_Title (Main_Window, "Thurthul Kau");
+
+      On_Delete_Event (Self => Main_Window,
+                       Call => Callbacks.Main_Window_Delete_Handler'Access);
+
+      Show_All (Main_Window);
    end Create_Window;
 
 begin --  Tuhrthul_Kau
