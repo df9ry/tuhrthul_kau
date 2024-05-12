@@ -3,11 +3,12 @@ with "gtkada";
 
 project Tuhrthul_Kau is
 
-   for Source_Dirs use ("src", "config");
+   for Source_Dirs use ("src", "config", "etc");
    for Object_Dir use "obj/" & Tuhrthul_Kau_Config.Build_Profile;
    for Create_Missing_Dirs use "True";
    for Exec_Dir use "bin";
    for Main use ("tuhrthul_kau.adb");
+   for Languages use ("Ada", "Css", "Xml");
 
    package Compiler is
       for Default_Switches ("ada") use Tuhrthul_Kau_Config.Ada_Compiler_Switches;
