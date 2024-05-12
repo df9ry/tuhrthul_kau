@@ -1,10 +1,11 @@
-with Gtk.Main;
-
 with Glib;        use Glib;
 with Glib.Error;  use Glib.Error;
 with Glib.Object; use Glib.Object;
 
 with Gtk.Builder; use Gtk.Builder;
+with Gtk.Button;  use Gtk.Button;
+with Gtk.Grid;    use Gtk.Grid;
+with Gtk.Main;
 with Gtk.Window;  use Gtk.Window;
 
 with Message_Dialog;
@@ -16,6 +17,8 @@ procedure Tuhrthul_Kau is
       Builder     : constant Gtk_Builder := Gtk_Builder_New;
       Error       : aliased GError;
       Main_Window : Gtk_Window;
+      Grid        : Gtk_Grid;
+      Button      : Gtk_Button;
 
    begin
       if Add_From_File (Builder  => Builder,
@@ -30,11 +33,24 @@ procedure Tuhrthul_Kau is
       then
          Message_Dialog.Fatal ("Unable to fetch main window");
       end if;
-
       Set_Title (Main_Window, "Thurthul Kau");
-
       On_Delete_Event (Self => Main_Window,
                        Call => Callbacks.Main_Window_Delete_Handler'Access);
+
+      Grid := Gtk_Grid (Get_Object (Builder, "center_grid"));
+      if Grid = null
+      then
+         Message_Dialog.Fatal ("Unable to fetch center grid");
+      end if;
+
+      for row in 1 .. 6 loop
+         for col in 1 .. 6 loop
+            Button := Gtk_Button (Get_Child_At (Grid, Gint (row), Gint (col)));
+            if Button /= null then
+               null;
+            end if;
+         end loop;
+      end loop;
 
       Show_All (Main_Window);
    end Create_Window;
