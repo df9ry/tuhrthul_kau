@@ -5,3 +5,26 @@
 .grid_header {
   font-size: 20px;
 }
+
+.cell {
+  margin: 2px;
+  padding: 0;
+  border-radius: 25px;
+  min-height: 0px;
+  min-width: 0px;
+}
+
+.cell_empty {
+  background-color: beige;
+  border: 20px solid beige;
+}
+
+.cell_full {
+  background-color: aqua;
+  border: 20px solid aqua;
+}
+
+.cell_highlighted {
+  background-color: teal;
+  border: 20px solid teal;
+}

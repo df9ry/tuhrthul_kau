@@ -14,8 +14,9 @@ with Gtk.Style_Context;
 with Gtk.Style_Provider; use Gtk.Style_Provider;
 with Gtk.Window;         use Gtk.Window;
 
-with Message_Dialog;
+with Board;
 with Callbacks;
+with Message_Dialog;
 
 procedure Tuhrthul_Kau is
 
@@ -71,14 +72,19 @@ procedure Tuhrthul_Kau is
       --  =============
       --  Connect board
       --  =============
+      Board.Init;
       for row in 1 .. 7 loop
          for col in 1 .. 7 loop
             Button := Gtk_Button (Get_Child_At (Grid, Gint (row), Gint (col)));
-            if Button /= null then
-               null;
-            end if;
+            Board.Set_Cell_Button
+              (Board.Get_Cell
+                 (Board.To_Row_Index (row),
+                  Board.To_Col_Index (col)),
+               Button);
          end loop;
       end loop;
+
+      Board.Reset;
 
       Show_All (Main_Window);
    end Create_Window;
