@@ -42,7 +42,7 @@ package body Board is
             declare The_Cell : Cell_Access renames The_Board (I_Row) (I_Col);
             begin
                if The_Cell.Button /= null then
-                  if The_Cell.I_Row = 4 and then The_Cell.I_Col = 'D' then
+                  if The_Cell.I_Row = 4 and then The_Cell.I_Col = 4 then
                      The_Cell.State := Empty_Cell;
                   else
                      The_Cell.State := Full_Cell;
@@ -95,17 +95,5 @@ package body Board is
          end case;
       end if;
    end Update_Cell;
-
-   function To_Row_Index (I : Natural) return Row_Index is
-   begin
-      return Row_Index (I);
-   end To_Row_Index;
-
-   function To_Col_Index (I : Natural) return Col_Index is
-      Rg : constant array (1 .. 7) of Col_Index :=
-        ('A', 'B', 'C', 'D', 'E', 'F', 'G');
-   begin
-      return Rg (I);
-   end To_Col_Index;
 
 end Board;

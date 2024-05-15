@@ -12,10 +12,11 @@ with Gtk.Grid;           use Gtk.Grid;
 with Gtk.Main;
 with Gtk.Style_Context;
 with Gtk.Style_Provider; use Gtk.Style_Provider;
+with Gtk.Widget;         use Gtk.Widget;
 with Gtk.Window;         use Gtk.Window;
 
-with Board;
-with Callbacks;
+with Board;              use Board;
+with Callbacks;          use Callbacks;
 with Message_Dialog;
 
 procedure Tuhrthul_Kau is
@@ -73,14 +74,18 @@ procedure Tuhrthul_Kau is
       --  Connect board
       --  =============
       Board.Init;
-      for row in 1 .. 7 loop
-         for col in 1 .. 7 loop
+
+      for row in Board.Row_Index loop
+         for col in Board.Col_Index loop
             Button := Gtk_Button (Get_Child_At (Grid, Gint (row), Gint (col)));
-            Board.Set_Cell_Button
-              (Board.Get_Cell
-                 (Board.To_Row_Index (row),
-                  Board.To_Col_Index (col)),
-               Button);
+            Board.Set_Cell_Button (Board.Get_Cell (row, col), Button);
+            if Button /= null then
+               Callback_With_Position.Connect
+                 (Button, "clicked",
+                  Callback_With_Position.To_Marshaller
+                    (Cell_Click_Callback'Access),
+                  Natural (8 * row) + Natural (col));
+            end if;
          end loop;
       end loop;
 

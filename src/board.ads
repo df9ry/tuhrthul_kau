@@ -7,8 +7,8 @@ package Board is
    type Orientation is (North, North_East, East, South_East,
                         South, South_West, West, North_West);
 
-   type Row_Index is range 1 .. 7;
-   type Col_Index is new Character range 'A' .. 'G';
+   type Row_Index is new Natural range 1 .. 7;
+   type Col_Index is new Natural range 1 .. 7;
 
    type Cell_State is (No_Cell, Empty_Cell, Full_Cell, Highlighted_Cell);
 
@@ -34,8 +34,5 @@ package Board is
    procedure Update_Cell (The_Cell : Cell_Access);
 
    procedure Reset;
-
-   function To_Row_Index (I : Natural) return Row_Index;
-   function To_Col_Index (I : Natural) return Col_Index;
 
 end Board;
