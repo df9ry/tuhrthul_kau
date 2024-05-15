@@ -64,6 +64,12 @@ package body Board is
       return The_Board (Pos.I_Row) (Pos.I_Col);
    end Get_Cell;
 
+   function Get_Cell (I_Row : Row_Index; I_Col : Col_Index) return Cell_Access
+   is
+   begin
+      return The_Board (I_Row) (I_Col);
+   end Get_Cell;
+
    procedure Update_Cell (The_Cell : Cell_Access) is
       Style_Context : Gtk.Style_Context.Gtk_Style_Context;
    begin

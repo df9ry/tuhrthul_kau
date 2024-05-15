@@ -29,6 +29,7 @@ procedure Tuhrthul_Kau is
       Grid           : Gtk_Grid;
       Button         : Gtk_Button;
       Pos            : Position;
+      The_Cell       : Cell_Access;
 
    begin
       if Add_From_File (Builder  => Builder,
@@ -75,7 +76,6 @@ procedure Tuhrthul_Kau is
       --  Connect board
       --  =============
       Board.Init;
-
       for row in Board.Row_Index loop
          for col in Board.Col_Index loop
             Button := Gtk_Button (Get_Child_At (Grid, Gint (row), Gint (col)));
@@ -91,8 +91,90 @@ procedure Tuhrthul_Kau is
             end if;
          end loop;
       end loop;
-
       Board.Reset;
+
+      --  ======================
+      --  Discover neighbourhood
+      --  ======================
+      for row in Board.Row_Index loop
+         for col in Board.Col_Index loop
+            The_Cell := Get_Cell (row, col);
+            if The_Cell.State /= No_Cell then
+               --  North:
+               if row > 1 then
+                  The_Cell.Neighbours (North).Next :=
+                    Get_Cell (row - 1, col);
+                  if row > 2 then
+                     The_Cell.Neighbours (North).Overnext :=
+                       Get_Cell (row - 2, col);
+                  end if;
+               end if;
+               --  North East:
+               if row > 1 and then col < 7 then
+                  The_Cell.Neighbours (North_East).Next :=
+                    Get_Cell (row - 1, col + 1);
+                  if row > 2 and then col < 6 then
+                     The_Cell.Neighbours (North_East).Overnext :=
+                       Get_Cell (row - 2, col + 2);
+                  end if;
+               end if;
+               --  East:
+               if col < 7 then
+                  The_Cell.Neighbours (East).Next :=
+                    Get_Cell (row, col + 1);
+                  if col < 6 then
+                     The_Cell.Neighbours (East).Overnext :=
+                       Get_Cell (row, col + 2);
+                  end if;
+               end if;
+               --  South East:
+               if row < 7 and then col < 7 then
+                  The_Cell.Neighbours (South_East).Next :=
+                    Get_Cell (row + 1, col + 1);
+                  if row < 6 and then col < 6 then
+                     The_Cell.Neighbours (South_East).Overnext :=
+                       Get_Cell (row + 2, col + 2);
+                  end if;
+               end if;
+               --  South:
+               if row < 7 then
+                  The_Cell.Neighbours (South).Next :=
+                    Get_Cell (row + 1, col);
+                  if row < 6 then
+                     The_Cell.Neighbours (South).Overnext :=
+                       Get_Cell (row + 2, col);
+                  end if;
+               end if;
+               --  South West:
+               if row < 7 and then col > 1 then
+                  The_Cell.Neighbours (South_West).Next :=
+                    Get_Cell (row + 1, col - 1);
+                  if row < 6 and then col > 2 then
+                     The_Cell.Neighbours (South_West).Overnext :=
+                       Get_Cell (row + 2, col - 2);
+                  end if;
+               end if;
+               --  West:
+               if col > 1 then
+                  The_Cell.Neighbours (West).Next :=
+                    Get_Cell (row, col - 1);
+                  if col > 2 then
+                     The_Cell.Neighbours (West).Overnext :=
+                       Get_Cell (row, col - 2);
+                  end if;
+               end if;
+               --  North West:
+               if row > 1 and then col > 1 then
+                  The_Cell.Neighbours (North_West).Next :=
+                    Get_Cell (row - 1, col - 1);
+                  if row > 2 and then col > 2 then
+                     The_Cell.Neighbours (North_West).Overnext :=
+                       Get_Cell (row - 2, col - 2);
+                  end if;
+               end if;
+            end if;
+         end loop;
+      end loop;
 
       Show_All (Main_Window);
    end Create_Window;

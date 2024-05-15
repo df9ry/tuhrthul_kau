@@ -19,14 +19,24 @@ package Board is
 
    type Cell_Mask is mod 2**64;
 
-   type Cell is record
-      Pos    : Position;
-      Mask   : Cell_Mask;
-      State  : Cell_State;
-      Button : Gtk_Button;
-   end record;
+   type Cell;
 
    type Cell_Access is access Cell;
+
+   type Neighbour is record
+      Next     : Cell_Access := null;
+      Overnext : Cell_Access := null;
+   end record;
+
+   type Neighbourhood is array (Orientation) of Neighbour;
+
+   type Cell is record
+      Pos        : Position;
+      Mask       : Cell_Mask;
+      State      : Cell_State;
+      Button     : Gtk_Button;
+      Neighbours : Neighbourhood;
+   end record;
 
    type Row   is array (Col_Index) of Cell_Access;
    type Row_Access is access Row;
@@ -36,6 +46,7 @@ package Board is
    procedure Init;
 
    function Get_Cell (Pos : Position) return Cell_Access;
+   function Get_Cell (I_Row : Row_Index; I_Col : Col_Index) return Cell_Access;
 
    procedure Set_Cell_Button (The_Cell : Cell_Access; Button : Gtk_Button);
 
