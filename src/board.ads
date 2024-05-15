@@ -12,9 +12,13 @@ package Board is
 
    type Cell_State is (No_Cell, Empty_Cell, Full_Cell, Highlighted_Cell);
 
+   type Position is record
+      I_Row : Row_Index;
+      I_Col : Col_Index;
+   end record;
+
    type Cell is record
-      I_Row  : Row_Index;
-      I_Col  : Col_Index;
+      Pos    : Position;
       State  : Cell_State;
       Button : Gtk_Button;
    end record;
@@ -27,7 +31,7 @@ package Board is
 
    procedure Init;
 
-   function Get_Cell (I_Row : Row_Index; I_Col : Col_Index) return Cell_Access;
+   function Get_Cell (Pos : Position) return Cell_Access;
 
    procedure Set_Cell_Button (The_Cell : Cell_Access; Button : Gtk_Button);
 

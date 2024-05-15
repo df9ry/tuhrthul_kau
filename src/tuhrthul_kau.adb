@@ -28,6 +28,7 @@ procedure Tuhrthul_Kau is
       Main_Window    : Gtk_Window;
       Grid           : Gtk_Grid;
       Button         : Gtk_Button;
+      Pos            : Position;
 
    begin
       if Add_From_File (Builder  => Builder,
@@ -78,13 +79,15 @@ procedure Tuhrthul_Kau is
       for row in Board.Row_Index loop
          for col in Board.Col_Index loop
             Button := Gtk_Button (Get_Child_At (Grid, Gint (row), Gint (col)));
-            Board.Set_Cell_Button (Board.Get_Cell (row, col), Button);
+            Pos.I_Row := row;
+            Pos.I_Col := col;
+            Board.Set_Cell_Button (Board.Get_Cell (Pos), Button);
             if Button /= null then
                Callback_With_Position.Connect
                  (Button, "clicked",
                   Callback_With_Position.To_Marshaller
                     (Cell_Click_Callback'Access),
-                  Natural (8 * row) + Natural (col));
+                  Pos);
             end if;
          end loop;
       end loop;

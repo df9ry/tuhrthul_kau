@@ -15,8 +15,8 @@ package body Board is
          for I_Col in Col_Index'Range loop
             The_Cell := new Cell;
             The_Row (I_Col) := The_Cell;
-            The_Cell.I_Row  := I_Row;
-            The_Cell.I_Col  := I_Col;
+            The_Cell.Pos.I_Row  := I_Row;
+            The_Cell.Pos.I_Col  := I_Col;
          end loop;
       end loop;
    end Init;
@@ -42,7 +42,8 @@ package body Board is
             declare The_Cell : Cell_Access renames The_Board (I_Row) (I_Col);
             begin
                if The_Cell.Button /= null then
-                  if The_Cell.I_Row = 4 and then The_Cell.I_Col = 4 then
+                  if The_Cell.Pos.I_Row = 4 and then The_Cell.Pos.I_Col = 4
+                  then
                      The_Cell.State := Empty_Cell;
                   else
                      The_Cell.State := Full_Cell;
@@ -56,10 +57,9 @@ package body Board is
       end loop;
    end Reset;
 
-   function Get_Cell (I_Row : Row_Index; I_Col : Col_Index)
-                      return Cell_Access is
+   function Get_Cell (Pos : Position) return Cell_Access is
    begin
-      return The_Board (I_Row) (I_Col);
+      return The_Board (Pos.I_Row) (Pos.I_Col);
    end Get_Cell;
 
    procedure Update_Cell (The_Cell : Cell_Access) is
