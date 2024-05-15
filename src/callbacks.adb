@@ -5,8 +5,7 @@ package body Callbacks is
 
    procedure Cell_Click_Callback
      (Button : access Gtk_Widget_Record'Class; Pos : Board.Position) is
-      The_Cell : constant Board.Cell_Access :=
-        Board.Get_Cell (Pos);
+      The_Cell : constant Board.Cell_Access := Board.Get_Cell (Pos);
    begin
       if Button /= null then
          case The_Cell.State is

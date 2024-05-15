@@ -17,6 +17,8 @@ package body Board is
             The_Row (I_Col) := The_Cell;
             The_Cell.Pos.I_Row  := I_Row;
             The_Cell.Pos.I_Col  := I_Col;
+            The_Cell.Mask :=
+              Cell_Mask (2 ** (Natural (I_Row) * 8 + Natural (I_Col)));
          end loop;
       end loop;
    end Init;
@@ -95,5 +97,40 @@ package body Board is
          end case;
       end if;
    end Update_Cell;
+
+   function Get_Mask return Cell_Mask is
+      Mask : Cell_Mask := 0;
+   begin
+      for I_Row in Row_Index'Range loop
+         for I_Col in Col_Index'Range loop
+            declare The_Cell : Cell_Access renames The_Board (I_Row) (I_Col);
+            begin
+               if The_Cell.State /= No_Cell and then
+                  The_Cell.State /= Empty_Cell
+               then
+                  Mask := Mask or The_Cell.Mask;
+               end if;
+            end;
+         end loop;
+      end loop;
+      return Mask;
+   end Get_Mask;
+
+   procedure Set_Mask (Mask : Cell_Mask) is
+   begin
+      for I_Row in Row_Index'Range loop
+         for I_Col in Col_Index'Range loop
+            declare The_Cell : Cell_Access renames The_Board (I_Row) (I_Col);
+            begin
+               if (Mask and The_Cell.Mask) /= 0 then
+                  The_Cell.State := Full_Cell;
+               else
+                  The_Cell.State := Empty_Cell;
+               end if;
+               Update_Cell (The_Cell);
+            end;
+         end loop;
+      end loop;
+   end Set_Mask;
 
 end Board;
