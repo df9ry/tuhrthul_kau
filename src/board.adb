@@ -59,6 +59,15 @@ package body Board is
       end loop;
    end Reset;
 
+   procedure Update is
+   begin
+      for I_Row in Row_Index'Range loop
+         for I_Col in Col_Index'Range loop
+            Update_Cell (The_Board (I_Row) (I_Col));
+         end loop;
+      end loop;
+   end Update;
+
    function Get_Cell (Pos : Position) return Cell_Access is
    begin
       return The_Board (Pos.I_Row) (Pos.I_Col);

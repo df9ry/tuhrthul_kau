@@ -4,7 +4,7 @@ with Gdk.Event;       use Gdk.Event;
 with Gtk.Handlers;
 with Gtk.Widget;      use Gtk.Widget;
 
-with Board;
+with Board;           use Board;
 
 package Callbacks is
 

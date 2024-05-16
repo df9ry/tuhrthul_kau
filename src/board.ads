@@ -52,6 +52,8 @@ package Board is
 
    procedure Update_Cell (The_Cell : Cell_Access);
 
+   procedure Update;
+
    procedure Reset;
 
    function Get_Mask return Cell_Mask;
