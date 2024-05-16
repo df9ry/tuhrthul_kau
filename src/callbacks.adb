@@ -3,7 +3,8 @@ with Gdk.Display;
 
 with Gtk.Main;
 
-with Engine; use Engine;
+with Engine;         use Engine;
+with Message_Dialog; use Message_Dialog;
 
 package body Callbacks is
 
@@ -26,6 +27,11 @@ package body Callbacks is
       end Find_Possibility;
 
    begin
+      if Game_Over then
+         Board.Reset;
+         Selected_Cell := null;
+         return;
+      end if;
       if Button /= null then
          if Selected_Cell /= null then
             --  There is a cell selected:
@@ -62,6 +68,9 @@ package body Callbacks is
          end if;
       end if;
       Board.Update;
+      if Game_Over then
+         Info ("Game over!");
+      end if;
    end Cell_Click_Callback;
 
    function Main_Window_Delete_Handler

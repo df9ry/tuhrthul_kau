@@ -18,9 +18,12 @@ package Engine is
    Selected_Cell : Cell_Access := null;
 
    procedure Find_Possibilities (Src_Cell : Cell_Access;
-                                 Possibilities : in out Possibility_Vector_T);
+                                 Possibilities : in out Possibility_Vector_T;
+                                 Clear : Boolean := True);
 
    function Move (The_Move : Possibility; Situation : Cell_Mask)
-     return Cell_Mask;
+                  return Cell_Mask;
+
+   function Game_Over return Boolean;
 
 end Engine;
