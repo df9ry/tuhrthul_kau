@@ -78,7 +78,13 @@ procedure Tuhrthul_Kau is
       Board.Init;
       for row in Board.Row_Index loop
          for col in Board.Col_Index loop
-            Button := Gtk_Button (Get_Child_At (Grid, Gint (row), Gint (col)));
+            if (row > 2 and then row < 6) or else (col > 2 and then col < 6)
+            then
+               Button := Gtk_Button (Get_Child_At
+                                     (Grid, Gint (row), Gint (col)));
+            else
+               Button := null;
+            end if;
             Pos.I_Row := row;
             Pos.I_Col := col;
             Board.Set_Cell_Button (Board.Get_Cell (Pos), Button);

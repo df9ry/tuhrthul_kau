@@ -1,13 +1,14 @@
 .grid_background {
-  background-color: beige;
+  background-color: lightgrey;
 }
 
 .grid_header {
+  background-color: floralwhite;
   font-size: 20px;
 }
 
 .cell {
-  margin: 2px;
+  margin: 5px;
   padding: 0;
   border-radius: 25px;
   min-height: 0px;
@@ -15,16 +16,17 @@
 }
 
 .cell_empty {
-  background-color: beige;
   border: 20px solid beige;
 }
 
 .cell_full {
-  background-color: aqua;
   border: 20px solid aqua;
 }
 
 .cell_highlighted {
-  background-color: teal;
   border: 20px solid teal;
+}
+
+.empty {
+  background-color: floralwhite;
 }
