@@ -44,7 +44,7 @@ package body Engine is
             if The_Cell.State = Full_Cell or else
               The_Cell.State = Highlighted_Cell
             then
-               Find_Possibilities (The_Cell, Possibilities, False);
+               Find_Possibilities (The_Cell, Possibilities, Clear => False);
             end if;
          end loop;
       end loop;
