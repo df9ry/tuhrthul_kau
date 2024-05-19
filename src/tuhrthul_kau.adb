@@ -1,4 +1,7 @@
 
+with Ada.Text_IO;        use Ada.Text_IO;
+with Gtkada.Intl;        use Gtkada.Intl;
+
 with Glib;               use Glib;
 with Glib.Error;         use Glib.Error;
 with Glib.Object;        use Glib.Object;
@@ -45,7 +48,7 @@ procedure Tuhrthul_Kau is
       Main_Window := Gtk_Window (Get_Object (Builder, "main_window"));
       if Main_Window = null
       then
-         Message_Dialog.Fatal ("Unable to fetch main window");
+         Message_Dialog.Fatal (-"Unable to fetch main window");
       end if;
       Set_Title (Main_Window, "Thurthul Kau");
       On_Delete_Event (Self => Main_Window,
@@ -54,7 +57,7 @@ procedure Tuhrthul_Kau is
       Grid := Gtk_Grid (Get_Object (Builder, "center_grid"));
       if Grid = null
       then
-         Message_Dialog.Fatal ("Unable to fetch center grid");
+         Message_Dialog.Fatal (-"Unable to fetch center grid");
       end if;
 
       --  =========
@@ -188,6 +191,7 @@ procedure Tuhrthul_Kau is
 begin --  Tuhrthul_Kau
    --  Initializes GtkAda
    Gtk.Main.Init;
+   Put_Line ("Running with locale: " & Gtkada.Intl.Getlocale);
 
    --  Create the main window
    Create_Window;
