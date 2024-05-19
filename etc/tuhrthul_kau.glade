@@ -31,6 +31,7 @@
                 <child>
                   <object class="GtkLabel">
                     <property name="visible">True</property>
+                    <property name="sensitive">False</property>
                     <property name="can-focus">False</property>
                     <property name="label" translatable="yes">A</property>
                     <style>
@@ -45,6 +46,7 @@
                 <child>
                   <object class="GtkLabel">
                     <property name="visible">True</property>
+                    <property name="sensitive">False</property>
                     <property name="can-focus">False</property>
                     <property name="label" translatable="yes">B</property>
                     <style>
@@ -59,6 +61,7 @@
                 <child>
                   <object class="GtkLabel">
                     <property name="visible">True</property>
+                    <property name="sensitive">False</property>
                     <property name="can-focus">False</property>
                     <property name="label" translatable="yes">C</property>
                     <style>
@@ -73,6 +76,7 @@
                 <child>
                   <object class="GtkLabel">
                     <property name="visible">True</property>
+                    <property name="sensitive">False</property>
                     <property name="can-focus">False</property>
                     <property name="label" translatable="yes">D</property>
                     <style>
@@ -87,6 +91,7 @@
                 <child>
                   <object class="GtkLabel">
                     <property name="visible">True</property>
+                    <property name="sensitive">False</property>
                     <property name="can-focus">False</property>
                     <property name="label" translatable="yes">E</property>
                     <style>
@@ -101,6 +106,7 @@
                 <child>
                   <object class="GtkLabel">
                     <property name="visible">True</property>
+                    <property name="sensitive">False</property>
                     <property name="can-focus">False</property>
                     <property name="label" translatable="yes">F</property>
                     <style>
@@ -115,6 +121,7 @@
                 <child>
                   <object class="GtkLabel">
                     <property name="visible">True</property>
+                    <property name="sensitive">False</property>
                     <property name="can-focus">False</property>
                     <property name="label" translatable="yes">G</property>
                     <style>
@@ -129,6 +136,7 @@
                 <child>
                   <object class="GtkLabel">
                     <property name="visible">True</property>
+                    <property name="sensitive">False</property>
                     <property name="can-focus">False</property>
                     <property name="label" translatable="yes">1</property>
                     <style>
@@ -143,6 +151,7 @@
                 <child>
                   <object class="GtkLabel">
                     <property name="visible">True</property>
+                    <property name="sensitive">False</property>
                     <property name="can-focus">False</property>
                     <property name="label" translatable="yes">2</property>
                     <style>
@@ -157,6 +166,7 @@
                 <child>
                   <object class="GtkLabel">
                     <property name="visible">True</property>
+                    <property name="sensitive">False</property>
                     <property name="can-focus">False</property>
                     <property name="label" translatable="yes">3</property>
                     <style>
@@ -171,6 +181,7 @@
                 <child>
                   <object class="GtkLabel">
                     <property name="visible">True</property>
+                    <property name="sensitive">False</property>
                     <property name="can-focus">False</property>
                     <property name="label" translatable="yes">4</property>
                     <style>
@@ -185,6 +196,7 @@
                 <child>
                   <object class="GtkLabel">
                     <property name="visible">True</property>
+                    <property name="sensitive">False</property>
                     <property name="can-focus">False</property>
                     <property name="label" translatable="yes">5</property>
                     <style>
@@ -199,6 +211,7 @@
                 <child>
                   <object class="GtkLabel">
                     <property name="visible">True</property>
+                    <property name="sensitive">False</property>
                     <property name="can-focus">False</property>
                     <property name="label" translatable="yes">6</property>
                     <style>
@@ -213,6 +226,7 @@
                 <child>
                   <object class="GtkLabel">
                     <property name="visible">True</property>
+                    <property name="sensitive">False</property>
                     <property name="can-focus">False</property>
                     <property name="label" translatable="yes">7</property>
                     <style>
