@@ -60,10 +60,10 @@ procedure Tuhrthul_Kau is
          Message_Dialog.Fatal (-"Unable to fetch center grid");
       end if;
 
-      --  if not Set_Icon_From_File (Main_Window, "share/icons/tuhrthul_kau.png")
-      --  then
-      --     Message_Dialog.Fatal (-"Unable to load icon");
-      --  end if;
+      if not Set_Default_Icon_From_File ("share/icons/tuhrthul_kau.ico")
+      then
+         Message_Dialog.Fatal (-"Unable to load icon");
+      end if;
 
       --  =========
       --  CSS Style
