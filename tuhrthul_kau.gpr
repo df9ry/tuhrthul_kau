@@ -1,3 +1,4 @@
+
 with "config/tuhrthul_kau_config.gpr";
 with "gtkada";
 
@@ -12,6 +13,7 @@ project Tuhrthul_Kau is
 
    package Compiler is
       for Default_Switches ("ada") use Tuhrthul_Kau_Config.Ada_Compiler_Switches;
+      for Switches ("tuhrthul_kau.adb") use ("-Og", "-ffunction-sections", "-fdata-sections", "-g", "-gnat2022", "-gnatVa", "-gnatwa.X", "-gnatyaABbc-defhiIklM79nOprStux");
    end Compiler;
 
    package Binder is
