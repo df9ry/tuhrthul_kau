@@ -16,6 +16,7 @@
 --  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 with Ada.Text_IO;        use Ada.Text_IO;
+with Ada.Assertions;     use Ada.Assertions;
 with Gtkada.Intl;        use Gtkada.Intl;
 
 with Glib;               use Glib;
@@ -27,6 +28,7 @@ with Gdk.Screen;
 with Gtk.Builder;        use Gtk.Builder;
 with Gtk.Button;         use Gtk.Button;
 with Gtk.Css_Provider;   use Gtk.Css_Provider;
+with Gtk.Event_Box;      use Gtk.Event_Box;
 with Gtk.Grid;           use Gtk.Grid;
 with Gtk.Main;
 with Gtk.Style_Context;
@@ -39,6 +41,14 @@ with Callbacks;          use Callbacks;
 with Message_Dialog;
 
 procedure Tuhrthul_Kau is
+   Exit_Button     : Gtk_Event_Box;
+   Play_Button     : Gtk_Event_Box;
+   Undo_Button     : Gtk_Event_Box;
+   Redo_Button     : Gtk_Event_Box;
+   Hint_Button     : Gtk_Event_Box;
+   Help_Button     : Gtk_Event_Box;
+   About_Button    : Gtk_Event_Box;
+   Settings_Button : Gtk_Event_Box;
 
    procedure Create_Window is
       Builder        : constant Gtk_Builder := Gtk_Builder_New;
@@ -62,24 +72,54 @@ procedure Tuhrthul_Kau is
       --  Main Window
       --  ===========
       Main_Window := Gtk_Window (Get_Object (Builder, "main_window"));
-      if Main_Window = null
-      then
-         Message_Dialog.Fatal (-"Unable to fetch main window");
-      end if;
+      Assert (Main_Window /= null);
       Set_Title (Main_Window, "Thurthul Kau");
+      Assert (Set_Default_Icon_From_File ("share/icons/tuhrthul_kau.ico"));
       On_Delete_Event (Self => Main_Window,
                        Call => Callbacks.Main_Window_Delete_Handler'Access);
 
       Grid := Gtk_Grid (Get_Object (Builder, "center_grid"));
-      if Grid = null
-      then
-         Message_Dialog.Fatal (-"Unable to fetch center grid");
-      end if;
+      Assert (Grid /= null, -"Unable to fetch center grid");
 
-      if not Set_Default_Icon_From_File ("share/icons/tuhrthul_kau.ico")
-      then
-         Message_Dialog.Fatal (-"Unable to load icon");
-      end if;
+      Exit_Button := Gtk_Event_Box (Get_Object (Builder, "btn_exit"));
+      Assert (Exit_Button /= null, -"Unable to fetch exit button");
+      On_Button_Press_Event (Self => Exit_Button,
+                             Call => Callbacks.Exit_Handler'Access);
+
+      Play_Button := Gtk_Event_Box (Get_Object (Builder, "btn_play"));
+      Assert (Play_Button /= null, -"Unable to fetch play button");
+      On_Button_Press_Event (Self => Play_Button,
+                             Call => Callbacks.Play_Handler'Access);
+
+      Undo_Button := Gtk_Event_Box (Get_Object (Builder, "btn_undo"));
+      Assert (Undo_Button /= null, -"Unable to fetch undo button");
+      On_Button_Press_Event (Self => Undo_Button,
+                             Call => Callbacks.Undo_Handler'Access);
+
+      Redo_Button := Gtk_Event_Box (Get_Object (Builder, "btn_redo"));
+      Assert (Redo_Button /= null, -"Unable to fetch redo button");
+      On_Button_Press_Event (Self => Redo_Button,
+                             Call => Callbacks.Redo_Handler'Access);
+
+      Hint_Button := Gtk_Event_Box (Get_Object (Builder, "btn_hint"));
+      Assert (Hint_Button /= null, -"Unable to fetch hint button");
+      On_Button_Press_Event (Self => Hint_Button,
+                             Call => Callbacks.Hint_Handler'Access);
+
+      Help_Button := Gtk_Event_Box (Get_Object (Builder, "btn_help"));
+      Assert (Help_Button /= null, -"Unable to fetch help button");
+      On_Button_Press_Event (Self => Help_Button,
+                             Call => Callbacks.Help_Handler'Access);
+
+      About_Button := Gtk_Event_Box (Get_Object (Builder, "btn_about"));
+      Assert (About_Button /= null, -"Unable to fetch about button");
+      On_Button_Press_Event (Self => About_Button,
+                             Call => Callbacks.About_Handler'Access);
+
+      Settings_Button := Gtk_Event_Box (Get_Object (Builder, "btn_settings"));
+      Assert (Settings_Button /= null, -"Unable to fetch settings button");
+      On_Button_Press_Event (Self => Settings_Button,
+                             Call => Callbacks.Settings_Handler'Access);
 
       --  =========
       --  CSS Style

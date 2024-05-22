@@ -15,12 +15,12 @@
 --  You should have received a copy of the GNU General Public License
 --  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-with Gdk.Event;       use Gdk.Event;
+with Gdk.Event;        use Gdk.Event;
 
 with Gtk.Handlers;
-with Gtk.Widget;      use Gtk.Widget;
+with Gtk.Widget;       use Gtk.Widget;
 
-with Board;           use Board;
+with Board;            use Board;
 
 package Callbacks is
 
@@ -30,7 +30,40 @@ package Callbacks is
    procedure Cell_Click_Callback
      (Button : access Gtk_Widget_Record'Class; Pos : Board.Position);
 
+   function Exit_Handler
+     (Self  : access Gtk_Widget_Record'Class;
+      Event : Gdk_Event_Button) return Boolean;
+
+   function Play_Handler
+     (Self  : access Gtk_Widget_Record'Class;
+      Event : Gdk_Event_Button) return Boolean;
+
+   function Undo_Handler
+     (Self  : access Gtk_Widget_Record'Class;
+      Event : Gdk_Event_Button) return Boolean;
+
+   function Redo_Handler
+     (Self  : access Gtk_Widget_Record'Class;
+      Event : Gdk_Event_Button) return Boolean;
+
+   function Hint_Handler
+     (Self  : access Gtk_Widget_Record'Class;
+      Event : Gdk_Event_Button) return Boolean;
+
+   function Help_Handler
+     (Self  : access Gtk_Widget_Record'Class;
+      Event : Gdk_Event_Button) return Boolean;
+
+   function About_Handler
+     (Self  : access Gtk_Widget_Record'Class;
+      Event : Gdk_Event_Button) return Boolean;
+
+   function Settings_Handler
+     (Self  : access Gtk_Widget_Record'Class;
+      Event : Gdk_Event_Button) return Boolean;
+
    function Main_Window_Delete_Handler
-     (Self : access Gtk_Widget_Record'Class; Event : Gdk_Event) return Boolean;
+     (Self  : access Gtk_Widget_Record'Class;
+      Event : Gdk_Event) return Boolean;
 
 end Callbacks;

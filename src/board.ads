@@ -20,6 +20,8 @@ with Gtk.Button; use Gtk.Button;
 
 package Board is
 
+   --  Types:
+
    type Orientation is (North, North_East, East, South_East,
                         South, South_West, West, North_West);
 
@@ -58,6 +60,8 @@ package Board is
    type Row_Access is access Row;
    type Board is array (Row_Index) of Row_Access;
    type Board_Access is access Board;
+
+   --  Routines:
 
    procedure Init;
 

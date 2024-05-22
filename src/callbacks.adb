@@ -19,6 +19,8 @@ with Gdk.Display;
 
 with Gtk.Main;
 
+with Ada.Text_Io;
+
 with Engine;         use Engine;
 with Message_Dialog; use Message_Dialog;
 
@@ -88,6 +90,78 @@ package body Callbacks is
          Info ("Game over!");
       end if;
    end Cell_Click_Callback;
+
+   function Exit_Handler
+     (Self  : access Gtk_Widget_Record'Class;
+      Event : Gdk_Event_Button) return Boolean is
+      pragma Unreferenced (Self, Event);
+   begin
+      Ada.Text_Io.Put_Line("Exit");
+      return False;
+   end Exit_Handler;
+
+   function Play_Handler
+     (Self  : access Gtk_Widget_Record'Class;
+      Event : Gdk_Event_Button) return Boolean is
+      pragma Unreferenced (Self, Event);
+   begin
+      Ada.Text_Io.Put_Line("Play");
+      return False;
+   end Play_Handler;
+
+   function Undo_Handler
+     (Self  : access Gtk_Widget_Record'Class;
+      Event : Gdk_Event_Button) return Boolean is
+      pragma Unreferenced (Self, Event);
+   begin
+      Ada.Text_Io.Put_Line("Undo");
+      return False;
+   end Undo_Handler;
+
+   function Redo_Handler
+     (Self  : access Gtk_Widget_Record'Class;
+      Event : Gdk_Event_Button) return Boolean is
+      pragma Unreferenced (Self, Event);
+   begin
+      Ada.Text_Io.Put_Line("Redo");
+      return False;
+   end Redo_Handler;
+
+   function Hint_Handler
+     (Self  : access Gtk_Widget_Record'Class;
+      Event : Gdk_Event_Button) return Boolean is
+      pragma Unreferenced (Self, Event);
+   begin
+      Ada.Text_Io.Put_Line("Hint");
+      return False;
+   end Hint_Handler;
+
+   function Help_Handler
+     (Self  : access Gtk_Widget_Record'Class;
+      Event : Gdk_Event_Button) return Boolean is
+      pragma Unreferenced (Self, Event);
+   begin
+      Ada.Text_Io.Put_Line("Help");
+      return False;
+   end Help_Handler;
+
+   function About_Handler
+     (Self  : access Gtk_Widget_Record'Class;
+      Event : Gdk_Event_Button) return Boolean is
+      pragma Unreferenced (Self, Event);
+   begin
+      Ada.Text_Io.Put_Line("About");
+      return False;
+   end About_Handler;
+
+   function Settings_Handler
+     (Self  : access Gtk_Widget_Record'Class;
+      Event : Gdk_Event_Button) return Boolean is
+      pragma Unreferenced (Self, Event);
+   begin
+      Ada.Text_Io.Put_Line("Settings");
+      return False;
+   end Settings_Handler;
 
    function Main_Window_Delete_Handler
      (Self : access Gtk_Widget_Record'Class; Event : Gdk_Event) return Boolean

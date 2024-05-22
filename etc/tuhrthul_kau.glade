@@ -14,84 +14,140 @@
             <property name="visible">True</property>
             <property name="can-focus">False</property>
             <child>
-              <object class="GtkImage" id="btn_exit">
+              <object class="GtkEventBox" id="btn_exit">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
-                <property name="pixbuf">../share/icons/exit.ico</property>
+                <child>
+                  <object class="GtkImage">
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <property name="tooltip-text" translatable="yes">Exit the application</property>
+                    <property name="pixbuf">../share/icons/exit.ico</property>
+                  </object>
+                </child>
+              </object>
+              <packing>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEventBox" id="btn_play">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <child>
+                  <object class="GtkImage">
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <property name="tooltip-text" translatable="yes">Start a new game</property>
+                    <property name="pixbuf">../share/icons/play.ico</property>
+                  </object>
+                </child>
               </object>
               <packing>
                 <property name="position">1</property>
               </packing>
             </child>
             <child>
-              <object class="GtkImage" id="btn_play">
+              <object class="GtkEventBox" id="btn_undo">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
-                <property name="pixbuf">../share/icons/play.ico</property>
+                <child>
+                  <object class="GtkImage">
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <property name="tooltip-text" translatable="yes">Undo move</property>
+                    <property name="pixbuf">../share/icons/undo.ico</property>
+                  </object>
+                </child>
               </object>
               <packing>
                 <property name="position">2</property>
               </packing>
             </child>
             <child>
-              <object class="GtkImage" id="btn_undo">
+              <object class="GtkEventBox" id="btn_redo">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
-                <property name="pixbuf">../share/icons/undo.ico</property>
+                <child>
+                  <object class="GtkImage">
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <property name="tooltip-text" translatable="yes">Redo move</property>
+                    <property name="pixbuf">../share/icons/redo.ico</property>
+                  </object>
+                </child>
               </object>
               <packing>
                 <property name="position">3</property>
               </packing>
             </child>
             <child>
-              <object class="GtkImage" id="btn_redo">
+              <object class="GtkEventBox" id="btn_hint">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
-                <property name="pixbuf">../share/icons/redo.ico</property>
+                <child>
+                  <object class="GtkImage">
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <property name="tooltip-text" translatable="yes">Give a hint</property>
+                    <property name="pixbuf">../share/icons/hint.ico</property>
+                  </object>
+                </child>
               </object>
               <packing>
                 <property name="position">4</property>
               </packing>
             </child>
             <child>
-              <object class="GtkImage" id="btn_hint">
+              <object class="GtkEventBox" id="btn_help">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
-                <property name="pixbuf">../share/icons/hint.ico</property>
+                <child>
+                  <object class="GtkImage">
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <property name="tooltip-text" translatable="yes">How to play the game</property>
+                    <property name="pixbuf">../share/icons/help.ico</property>
+                  </object>
+                </child>
               </object>
               <packing>
                 <property name="position">5</property>
               </packing>
             </child>
             <child>
-              <object class="GtkImage" id="btn_help">
+              <object class="GtkEventBox" id="btn_about">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
-                <property name="pixbuf">../share/icons/help.ico</property>
+                <child>
+                  <object class="GtkImage">
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <property name="tooltip-text" translatable="yes">About this application</property>
+                    <property name="pixbuf">../share/icons/about.ico</property>
+                  </object>
+                </child>
               </object>
               <packing>
                 <property name="position">6</property>
               </packing>
             </child>
             <child>
-              <object class="GtkImage" id="btn_about">
+              <object class="GtkEventBox" id="btn_settings">
                 <property name="visible">True</property>
                 <property name="can-focus">False</property>
-                <property name="pixbuf">../share/icons/about.ico</property>
-              </object>
-              <packing>
-                <property name="position">7</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkImage" id="btn_settings">
-                <property name="visible">True</property>
-                <property name="can-focus">False</property>
-                <property name="pixbuf">../share/icons/settings.ico</property>
+                <child>
+                  <object class="GtkImage">
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <property name="tooltip-text" translatable="yes">Settings</property>
+                    <property name="pixbuf">../share/icons/settings.ico</property>
+                  </object>
+                </child>
               </object>
               <packing>
                 <property name="pack-type">end</property>
-                <property name="position">8</property>
+                <property name="position">7</property>
               </packing>
             </child>
           </object>

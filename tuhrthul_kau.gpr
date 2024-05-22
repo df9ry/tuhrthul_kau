@@ -1,4 +1,3 @@
-
 --  Tuhrthur Kau Game
 --  Copyright (C) 2024  Reiner Tania Hagn
 --
@@ -28,7 +27,7 @@ project Tuhrthul_Kau is
    for Languages use ("Ada", "Css", "Xml");
 
    package Compiler is
-      for Default_Switches ("ada") use Tuhrthul_Kau_Config.Ada_Compiler_Switches;
+      for Default_Switches ("ada") use ("-Og", "-ffunction-sections", "-fdata-sections", "-g", "-gnat2022", "-gnatVa", "-gnatwa.X", "-gnatyaABbc-defhiIklM79nOprStux");
       for Switches ("tuhrthul_kau.adb") use ("-Og", "-ffunction-sections", "-fdata-sections", "-g", "-gnat2022", "-gnatVa", "-gnatwa.X", "-gnatyaABbc-defhiIklM79nOprStux");
    end Compiler;
 
