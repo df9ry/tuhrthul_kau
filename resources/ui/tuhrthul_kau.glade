@@ -22,7 +22,7 @@
                     <property name="visible">True</property>
                     <property name="can-focus">False</property>
                     <property name="tooltip-text" translatable="yes">Exit the application</property>
-                    <property name="pixbuf">../share/icons/exit.ico</property>
+                    <property name="pixbuf">../icons/exit.ico</property>
                   </object>
                 </child>
               </object>
@@ -39,7 +39,7 @@
                     <property name="visible">True</property>
                     <property name="can-focus">False</property>
                     <property name="tooltip-text" translatable="yes">Start a new game</property>
-                    <property name="pixbuf">../share/icons/play.ico</property>
+                    <property name="pixbuf">../icons/play.ico</property>
                   </object>
                 </child>
               </object>
@@ -56,7 +56,7 @@
                     <property name="visible">True</property>
                     <property name="can-focus">False</property>
                     <property name="tooltip-text" translatable="yes">Undo move</property>
-                    <property name="pixbuf">../share/icons/undo.ico</property>
+                    <property name="pixbuf">../icons/undo.ico</property>
                   </object>
                 </child>
               </object>
@@ -73,7 +73,7 @@
                     <property name="visible">True</property>
                     <property name="can-focus">False</property>
                     <property name="tooltip-text" translatable="yes">Redo move</property>
-                    <property name="pixbuf">../share/icons/redo.ico</property>
+                    <property name="pixbuf">../icons/redo.ico</property>
                   </object>
                 </child>
               </object>
@@ -90,7 +90,7 @@
                     <property name="visible">True</property>
                     <property name="can-focus">False</property>
                     <property name="tooltip-text" translatable="yes">Give a hint</property>
-                    <property name="pixbuf">../share/icons/hint.ico</property>
+                    <property name="pixbuf">../icons/hint.ico</property>
                   </object>
                 </child>
               </object>
@@ -107,7 +107,7 @@
                     <property name="visible">True</property>
                     <property name="can-focus">False</property>
                     <property name="tooltip-text" translatable="yes">How to play the game</property>
-                    <property name="pixbuf">../share/icons/help.ico</property>
+                    <property name="pixbuf">../icons/help.ico</property>
                   </object>
                 </child>
               </object>
@@ -124,7 +124,7 @@
                     <property name="visible">True</property>
                     <property name="can-focus">False</property>
                     <property name="tooltip-text" translatable="yes">About this application</property>
-                    <property name="pixbuf">../share/icons/about.ico</property>
+                    <property name="pixbuf">../icons/about.ico</property>
                   </object>
                 </child>
               </object>
@@ -141,7 +141,7 @@
                     <property name="visible">True</property>
                     <property name="can-focus">False</property>
                     <property name="tooltip-text" translatable="yes">Settings</property>
-                    <property name="pixbuf">../share/icons/settings.ico</property>
+                    <property name="pixbuf">../icons/settings.ico</property>
                   </object>
                 </child>
               </object>

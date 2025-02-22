@@ -62,7 +62,7 @@ procedure Tuhrthul_Kau is
 
    begin
       if Add_From_File (Builder  => Builder,
-                        Filename => "etc/tuhrthul_kau.glade",
+                        Filename => "resources/ui/tuhrthul_kau.glade",
                         Error    => Error'Access) = 0
       then
          Message_Dialog.Fatal (Get_Message (Error));
@@ -74,7 +74,7 @@ procedure Tuhrthul_Kau is
       Main_Window := Gtk_Window (Get_Object (Builder, "main_window"));
       Assert (Main_Window /= null);
       Set_Title (Main_Window, "Thurthul Kau");
-      Assert (Set_Default_Icon_From_File ("share/icons/tuhrthul_kau.ico"));
+      Assert (Set_Default_Icon_From_File ("resources/icons/tuhrthul_kau.ico"));
       On_Delete_Event (Self => Main_Window,
                        Call => Callbacks.Main_Window_Delete_Handler'Access);
 
@@ -125,7 +125,7 @@ procedure Tuhrthul_Kau is
       --  CSS Style
       --  =========
       if not Load_From_Path (Self  => Css_Provider,
-                             Path  => "etc/tuhrthul_kau.css",
+                             Path  => "resources/css/tuhrthul_kau.css",
                              Error => Error'Access)
       then
          Message_Dialog.Fatal (Get_Message (Error));

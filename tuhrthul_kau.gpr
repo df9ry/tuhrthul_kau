@@ -19,7 +19,7 @@ with "gtkada";
 
 project Tuhrthul_Kau is
 
-   for Source_Dirs use ("src", "config", "etc");
+   for Source_Dirs use ("src", "resources");
    for Object_Dir use "obj/" & Tuhrthul_Kau_Config.Build_Profile;
    for Create_Missing_Dirs use "True";
    for Exec_Dir use "bin";
@@ -31,13 +31,13 @@ project Tuhrthul_Kau is
       for Switches ("tuhrthul_kau.adb") use ("-Og", "-ffunction-sections", "-fdata-sections", "-g", "-gnat2022", "-gnatVa", "-gnatwa.X", "-gnatyaABbc-defhiIklM79nOprStux");
    end Compiler;
 
+   package Builder is
+      for Default_Switches ("Ada") use ("-g");
+   end Builder;
+
    package Binder is
       for Switches ("Ada") use ("-Es"); --  Symbolic traceback
    end Binder;
-
-   package Install is
-      for Artifacts (".") use ("share");
-   end Install;
 
    package Ide is
       for Vcs_Kind use "git";
